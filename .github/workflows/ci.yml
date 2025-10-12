@@ -17,20 +17,24 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v3
 
-      # Configura o Node.js (versão usada pelo React)
+      # Configura o Node.js
       - name: Configura Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: '22' 
 
       # Instala as dependências do projeto
       - name: Instala dependências
         run: npm install
 
-      # Roda os testes (React já vem com Jest configurado por padrão)
-      - name: Executa testes
-        run: npx jest
+      # PASSO NOVO E ESSENCIAL: Adiciona permissão de execução
+      - name: Adiciona permissão de execução
+        run: chmod +x ./node_modules/.bin/jest
 
-      # Roda o build para verificar se o projeto compila sem erros
+      # Roda os testes
+      - name: Executa testes
+        run: npm test
+
+      # Roda o build para verificar se o projeto compila sem erros (opcional para o seu projeto, mas bom ter)
       - name: Executa build
         run: npm run build
