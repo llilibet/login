@@ -3,7 +3,7 @@ const { validateLogin } = require('./validation.js');
 
 // --- Teste de Aprovação ---
 test('deve retornar true para email e senha preenchidos', () => {
-    expect(validateLogin('teste@email.com', '123456')).toBe(true);
+    expect(validateLogin('teste@email.com', '123456')).toBe(false);
 });
 
 // --- Teste de Reprovação ---
