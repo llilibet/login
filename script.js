@@ -1,9 +1,14 @@
+// script.js (Código Completo)
+
+import { validateLogin } from './validation.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const form = document.querySelector('form');
     const emailInput = document.querySelector('input[type="email"]');
     const passwordInput = document.querySelector('input[type="password"]');
 
+    // Função para criar e exibir o modal na tela
     const showModal = (message) => {
         const modalOverlay = document.createElement('div');
         modalOverlay.className = 'modal-overlay';
@@ -37,17 +42,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(modalOverlay);
     };
 
+    // Adiciona o evento de 'submit' ao formulário
     form.addEventListener('submit', (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Impede o recarregamento da página
 
-        const emailValue = emailInput.value.trim();
-        const passwordValue = passwordInput.value.trim();
+        const emailValue = emailInput.value;
+        const passwordValue = passwordInput.value;
 
-        if (emailValue === '' || passwordValue === '') {
-            showModal('Por favor, preencha os campos de usuário e senha.');
-        } else {
+        // Usa a função de validação importada para checar os campos
+        if (validateLogin(emailValue, passwordValue)) {
+            // Se for válido, mostra a mensagem de sucesso
             console.log('Login válido. Email:', emailValue);
             showModal('Login realizado com sucesso!');
+        } else {
+            // Se for inválido, mostra a mensagem de erro
+            showModal('Por favor, preencha os campos de usuário e senha.');
         }
     });
 
