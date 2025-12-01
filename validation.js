@@ -1,9 +1,9 @@
 // Em validation.js
 function validateLogin(email, password) {
     if (email.trim() === '' || password.trim() === '') {
-        return false; // Inválido
+        return false; 
     }
-    return true; // Válido
+    return true;
 }
 
 module.exports = { validateLogin };
