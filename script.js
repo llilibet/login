@@ -1,5 +1,3 @@
-// script.js (Código Completo)
-
 import { validateLogin } from './validation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.querySelector('input[type="email"]');
     const passwordInput = document.querySelector('input[type="password"]');
 
-    // Função para criar e exibir o modal na tela
     const showModal = (message) => {
         const modalOverlay = document.createElement('div');
         modalOverlay.className = 'modal-overlay';
@@ -41,8 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(modalOverlay);
     };
-
-    // Adiciona o evento de 'submit' ao formulário
+o
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Impede o recarregamento da página
 
